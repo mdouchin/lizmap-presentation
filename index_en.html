@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Lizmap Web Client - Feature Frenzy</title>
+
+        <meta name="description" content="Lizmap Web Client presentation">
+        <meta name="author" content="3liz">
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <style>
+        .slides .header{
+          position:absolute;
+          top: 0%;
+        }
+        .slides .footer{
+          position:absolute;
+          bottom: 0%;
+          left:0px;
+          margin: 0px;
+          padding:5px;
+          font-size:0.4em;
+          background-color:rgba(255,255,255,0.1);
+          border-radius: 5px;
+        }
+        .reveal section img{
+          background: none;
+          border: none;
+          box-shadow: none;
+        }
+        .reveal h1, .reveal h2 {
+            color: #94C11F;
+        }
+        .reveal h3 {
+            font-size: 1.2em;
+            text-transform: none;
+        }
+        .slides section ul{
+            font-size: 1em;
+        }
+        .slides section.black-font h2{
+            color: black;
+        }
+        .slides section.black-font ul{
+            color: black;
+            background:rgba(255,255,255,0.8);
+            font-size: 0.7em;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+                <section data-markdown>
+                    # Lizmap Web Client
+
+                    ### Publish QGIS maps online
+                    ### *Lizmap Feature Frenzy*
+
+                    Michaël Douchin - 3liz
+
+                    ![Logo 3liz](media/Lizmap_rond_coul_noir_300.png)
+
+                </section>
+
+                <section data-markdown data-background="#94C11F">
+                    ## QGIS Server & Lizmap
+                </section>
+
+                <section data-markdown>
+                    ## Lizmap ?
+
+                    * An open source web map builder for QGIS
+                    * Created by 3liz (France) in 2011
+                    * 1 QGIS plugin + 1 web client
+                    * QGIS Server as the map server
+                    * New major version 3.0 in mid-2016
+
+                    ![Logo 3liz](media/Lizmap_rond_coul_noir_300.png)
+                </section>
+
+                <section data-markdown>
+                    ## QGIS Server ?
+
+                    ### A map server based on QGIS
+
+                    * map rendering as images - WMS
+                    * export vector data to GML & GeoJSON - WFS
+                    * export rasters - WCS
+                    * processing server - WPS ( via server plugin )
+
+                    ![Logo QGIS](media/QGis_Logo.png)
+                </section>
+
+                <section data-markdown>
+                    ## Why QGIS Server ?
+
+                    * No additionnal conf -> use QGIS project
+                        - symbology, labels, layers, etc.
+                    * Support of many formats:
+                        - vector, raster, virtual layers
+                    * QGIS amazing features:
+                        - 2.5D rendering, heat maps, print composer, rule based labelling, expressions
+
+                    ![Logo QGIS](media/QGis_Logo.png)
+
+                </section>
+
+                <section data-background="media/blending.jpg">
+                &nbsp;</section>
+                <section data-background="media/bati_amiens.jpeg">
+                &nbsp;</section>
+
+                <section data-markdown>
+                    ## Publish with QGIS Server ?
+
+                    * Send QGIS project and data to the server
+                    * Use a WMS/WFS/WCS client like QGIS to get data and maps
+
+                    ![Logo QGIS](media/QGis_Logo.png)
+                </section>
+
+                <section data-background="media/qgis_server.jpg">
+                &nbsp;</section>
+
+                <section data-markdown>
+                    ## Lizmap is a QGIS web client
+
+                    * Lists all server-side QGIS projects
+                    * Builds and display one web map per QGIS project
+                    * Acts as a proxy between the web map and QGIS Server
+                    * Controls access to maps based on groups of users
+                    * Automatic tile cache generator, accessible via WMTS
+
+                    ![Logo 3liz](media/Lizmap_rond_coul_noir_300.png)
+                </section>
+
+                <section data-markdown>
+                    ## How to publish projects with Lizmap ?
+
+                    * Configure the QGIS project: project properties, projections, layers
+                    * Configure map options via Lizmap plugin: scales, base layers, tools
+                    * Send project and lizmap configuration to the server.
+
+                    desktop | server | browser
+                    --------------------- | --------------------- | ---------------
+                    ![1](media/lizmap-1.jpg) | ![2](media/lizmap-2.jpg) | ![3](media/lizmap-3.jpg)
+
+                </section>
+
+                <section data-markdown data-background="#94C11F">
+                    ## Lizmap features
+                </section>
+
+                <section data-markdown>
+                    ## Main page: project list
+
+                    * Projects are organized in repositories
+                    * One image for each QGIS project: title, description, links
+                    * Only accessible repositories are available depending on rights
+                </section>
+
+                <section data-background="media/accueil.gif">
+                &nbsp;</section>
+
+                <section data-markdown data-background="media/interface.jpg" class="black-font">
+                    ## Lizmap map interface
+
+                    * Header: logo, address search, connection
+                    * Navigation bar: zoom and pan
+                    * Left panel: layers, legend, metadata
+                    * Right small dock for tools: printing, location
+                    * Overview map with scales and position
+                    * Responsive HTML interface
+                </section>
+
+                <section data-background="media/interface_responsive.png" data-background-size="40%">
+                &nbsp;</section>
+
+                <section data-markdown>
+                    ## Layer legend panel
+
+                    * Legend images generated by QGIS under each layer
+                    * Possibility to group many QGIS layers as one single Lizmap layer
+                    * A layer toolbar with tools: zoom, information, export, filter
+                </section>
+
+                <section data-background="media/legende.jpg">
+                &nbsp;</section>
+
+                <section data-markdown>
+                    ## Popups : identification tool
+
+                    ### Display information on clic
+
+                    * Configured in QGIS
+                      - choose which fields are displayed via vector properties
+                      - use aliases to display human readable field names
+                    * Lizmap popup displays a table containing fields names and values
+                    * A richer content can be shown with images, links, HMTL layout
+                </section>
+
+                <section data-background="media/popup.gif">
+                &nbsp;</section>
+
+                <section data-markdown>
+                    ## Popups
+
+                    * QGIS vector tooltip can be used as the source for the popup layout
+                </section>
+
+                <section data-background="media/qgis_infobulle.jpg">
+                &nbsp;</section>
+                <section data-background="media/lizmap_popup_qgis.jpg">
+                &nbsp;</section>
+
+                <section data-markdown>
+                    ## Data tables in Lizmap
+
+                    * Choose which vector layer to publish
+                    * Lizmap shows a data table for each published layer
+                    * Search among data while typing
+                    * Launch actions on feature: select, zoom, pan, edit, delete
+                    * Support for QGIS layers relations : parent/child
+                    * Export vector layers
+                </section>
+
+                <section data-background="media/table_attributaire.gif">
+                &nbsp;</section>
+
+                <section data-markdown>
+                    ## Filtering data
+
+                    ### Filter data displayed on map and in tables
+
+                    * Select some data, then trigger filtering on these data
+                        - From attribute table
+                        - From popup
+                    * The filter is active for any tool: printing, layer export, permalink
+                    * Data filter is applied on child layers through relations (1:N or N:M)
+                </section>
+
+                <section data-background="media/filtre.gif">
+                &nbsp;</section>
+
+                <section data-markdown>
+                    ## Map tooltip
+
+                    ### Display information on hover
+
+                    * Configured in Lizmap plugin
+                        - choose layer(s) to activate
+                        - choose geometry color for highlited feature
+
+                </section>
+
+                <section data-background="media/infobulle.gif">
+                &nbsp;</section>
+
+                <section data-markdown>
+                    ## Editing data in Lizmap
+
+                    * Feature available for PostgreSQL layers
+                    * Configure aliases and form edit types in QGIS: value relation, checkbox, photo, etc.
+                    * Design form: auto mode or use Drag&Drop
+                    * Choose possible actions for each layer: add, modify, delete
+                    * Restrict editing for groups of users via Lizmap rights system
+                    * Editing is done directly on the layer
+
+                </section>
+
+                <section data-background="media/qgis_edition.gif">
+                &nbsp;</section>
+
+                <section data-markdown>
+                    ## Editing in the Lizmap interface
+
+                    * A web form is shown in the left panel
+                    * Geometry and attributes can be edited at the same time
+                    * Data is stored in QGIS layer: symbology, labels, popups, tables
+                </section>
+
+                <section data-background="media/lizmap_edition.gif">
+                &nbsp;</section>
+
+                <section data-markdown>
+                    ## Vector layers export
+
+                    * QGIS Server can export data to GeoJSON and GML (WFS)
+                    * Server Python plugin qgis-wfsOutputExtension: Shapefile, ODS, XLSX, KML, TAB, CSV
+                    * Lizmap export is available only for some groups of users
+                    * Export tool in legend layer toolbar and attribute tables
+                </section>
+
+                <section data-background="media/export.png">
+                &nbsp;</section>
+
+                <section data-markdown>
+                    ## Map print feature
+
+                    * Lizmap uses QGIS project print compositions
+                        - multi-page
+                        - overview map is supported
+                        - legend, filtered or not
+                        - tables
+                        - texts can be changed by user ( when id is set)
+                    * An atlas configuration can be used with some extra server side code
+                </section>
+
+                <section data-background="media/impression_lizmap.jpg">
+                &nbsp;</section>
+                <section data-background="media/impression_pdf.jpg">
+                &nbsp;</section>
+                <section data-background="media/pprn_popup.png">
+                &nbsp;</section>
+                <section data-background="media/pprn_atlas.png">
+                &nbsp;</section>
+
+                <section data-markdown>
+                    ## Lizmap - designed to be extensible and hackable
+
+                    * Theme support: override interface properties via CSS
+                    * Server side: create a module for any specific usage
+                    * Client side: load Javascript files with each QGIS project & use Lizmap events:
+                        - popup is displayed
+                        - a feature has been modified
+                        - a filter has been activated on a layer, etc.
+                </section>
+
+                <section data-background="media/events.png">
+                &nbsp;</section>
+                <section data-background="media/observatoire_photo.gif">
+                &nbsp;</section>
+
+                <section data-markdown>
+                    ## JS Example
+                    ### Add a 3D view created with Qgis2ThreeJS
+
+                </section>
+
+                <section data-background="media/threejs.gif">
+                &nbsp;</section>
+
+                <section data-markdown>
+                    ## JS Example
+                    ### Add a 3D view created with Qgis2ThreeJS
+
+                    ```
+                    lizMap.events.on({
+                        uicreated: function(e) {
+                            var mediaLink = OpenLayers.Util.urlAppend(
+                                lizUrls.media
+                                ,OpenLayers.Util.getParameterString(lizUrls.params)
+                            );
+                            var frameSrc = mediaLink +'&path=/media/js/observatoire/threejs.html';
+                            lizMap.addDock(
+                                'threejs',
+                                'Vue 3D',
+                                'right-dock',
+                                '&lt;iframe src=&quot;' + frameSrc + '&quot; height=&quot;800px&quot; width=&quot;100%&quot;&gt;',
+                                'icon-globe'
+                            );
+                        }
+                    });
+
+                    ```
+                </section>
+
+                <section data-markdown data-background="media/lizmap_medtrix_dashboard.png" data-background-size="100%">
+                    .
+                    ## JS example : play with d3.js
+                </section>
+
+                <section data-markdown data-background="#94C11F">
+                    ## Lizmap ecosystem
+
+                </section>
+
+                <section data-markdown>
+                    ## From QGIS to Lizmap: some use cases
+
+                    * Optical fiber networks
+                    * Species observation in protected areas
+                    * Risk management: flows, earthquakes
+                    * Local urban masterplan with cadastral baselayer
+                    * Field data collection with Raspberry-PI/docker/QGIS/Lizmap/PostgreSQL
+                    * School transportation system management
+                    * Touristic maps
+
+                </section>
+
+                <section data-background="media/pays_de_pontivy.png">
+                &nbsp;</section>
+                <section data-background="media/grace_thd.png">
+                &nbsp;</section>
+                <section data-background="media/karunati.png">
+                &nbsp;</section>
+                <section data-background="media/aduga.png">
+                &nbsp;</section>
+                <section data-background="media/garrigue.png">
+                &nbsp;</section>
+                <section data-background="media/geopoppy.png">
+                &nbsp;</section>
+
+                <section data-markdown>
+                    ## Resources
+
+                    * Documentation: http://docs.3liz.com
+                    * Translation via Transifex:
+                        - interface: https://www.transifex.com/3liz-1/lizmap-locales/
+                        - documentation: https://www.transifex.com/3liz-1/lizmap-documentation/
+                    * Source code:
+                        - Lizmap Plugin : https://github.com/3liz/lizmap-plugin
+                        - Lizmap Web Client: https://github.com/3liz/lizmap-web-client
+
+                </section>
+
+                <section data-background="media/transifex.png">
+                &nbsp;</section>
+
+                <section data-markdown>
+                    ## Contributions are welcome
+
+                    * develop a feature, help to fix bug
+                    * write documentation
+                    * help to translate lizmap interface and documentation
+                    * report bugs and share ideas for new features
+                    * support bug fixing or new features development
+                </section>
+
+                <section data-markdown>
+                    ## RoadMap
+
+                    * V3.0 RC planed for QGIS HackFest in Girona
+                    * Modules for regional and local authorities: cadastre, networks, etc.
+                    * Migration to OpenLayers 3
+                    * Add a WPS client to use processing scripts and models from Lizmap
+                </section>
+
+                <section data-markdown data-background="media/threejs.gif" class="black-font">
+                    ## Thanks for your attention
+
+                    ![Logo 3liz](media/Lizmap_rond_coul_noir_300.png)
+
+                    * Twitter: @3LIZ_news
+                    * Site: http://3liz.com
+                </section>
+
+                <div class="footer">
+                    3liz - QGIS 2016
+                </div>
+
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+
+            // More info https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // More info https://github.com/hakimel/reveal.js#dependencies
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+                    { src: 'plugin/notes/notes.js', async: true }
+                ]
+            });
+
+        </script>
+
+
+    </body>
+
+</html>
+
